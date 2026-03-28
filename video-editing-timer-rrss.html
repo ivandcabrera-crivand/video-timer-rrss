@@ -144,11 +144,18 @@
         .action-item {
             display: flex;
             flex-direction: column;
-            padding: 12px 15px;
+            padding: 10px 12px;
             background: #1e1e1e;
             border-radius: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             border: 1px solid #333;
+        }
+
+        @media (min-width: 768px) {
+            .action-item {
+                padding: 12px 15px;
+                margin-bottom: 10px;
+            }
         }
 
         .action-row {
@@ -166,13 +173,20 @@
         .action-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             flex: 1;
+            min-width: 0;
+        }
+
+        @media (min-width: 768px) {
+            .action-left {
+                gap: 12px;
+            }
         }
 
         .checkbox {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             border: 2px solid #555;
             border-radius: 50%;
             cursor: pointer;
@@ -180,6 +194,14 @@
             align-items: center;
             justify-content: center;
             transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .checkbox {
+                width: 24px;
+                height: 24px;
+            }
         }
 
         .checkbox:hover {
@@ -195,34 +217,67 @@
             content: '✓';
             color: #1a1a1a;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .checkbox.checked::after {
+                font-size: 16px;
+            }
         }
 
         .action-name {
-            font-size: 15px;
+            font-size: 14px;
             color: #e0e0e0;
+            line-height: 1.3;
+        }
+
+        @media (min-width: 768px) {
+            .action-name {
+                font-size: 15px;
+            }
         }
 
         .action-right {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .action-right {
+                gap: 15px;
+            }
         }
 
         .time-limit {
-            font-size: 13px;
+            font-size: 11px;
             color: #999;
-            min-width: 60px;
+            min-width: 50px;
             text-align: right;
         }
 
+        @media (min-width: 768px) {
+            .time-limit {
+                font-size: 13px;
+                min-width: 60px;
+            }
+        }
+
         .timer {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
             color: #fff;
-            min-width: 60px;
+            min-width: 50px;
             text-align: right;
             font-variant-numeric: tabular-nums;
+        }
+
+        @media (min-width: 768px) {
+            .timer {
+                font-size: 16px;
+                min-width: 60px;
+            }
         }
 
         .timer.warning {
@@ -784,13 +839,13 @@
             background: #333;
             border: none;
             color: #ffa726;
-            padding: 8px 16px;
+            padding: 6px 10px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: bold;
             transition: all 0.2s;
-            min-width: 60px;
+            min-width: 50px;
             touch-action: manipulation;
         }
 
@@ -798,6 +853,7 @@
             .timer-btn {
                 padding: 6px 12px;
                 font-size: 12px;
+                min-width: 60px;
             }
         }
 
@@ -815,20 +871,22 @@
             background: #ff9800;
             border: none;
             color: #fff;
-            padding: 8px 16px;
+            padding: 6px 10px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: bold;
             transition: all 0.2s;
-            margin-left: 5px;
+            margin-left: 4px;
             touch-action: manipulation;
+            white-space: nowrap;
         }
 
         @media (min-width: 768px) {
             .pause-btn {
                 padding: 6px 12px;
                 font-size: 12px;
+                margin-left: 5px;
             }
         }
 
