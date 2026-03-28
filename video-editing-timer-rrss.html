@@ -247,7 +247,7 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            gap: 8px;
+            gap: 6px;
         }
 
         @media (min-width: 768px) {
@@ -272,6 +272,24 @@
         @media (min-width: 768px) {
             .action-left {
                 gap: 12px;
+            }
+        }
+
+        /* Center section - timer and limit stacked */
+        .action-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            min-width: 55px;
+        }
+
+        @media (min-width: 768px) {
+            .action-center {
+                flex-direction: row;
+                gap: 8px;
+                min-width: 120px;
             }
         }
 
@@ -333,82 +351,46 @@
             }
         }
 
-        .action-right {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        /* Mobile - stack timer info vertically */
-        @media (max-width: 767px) {
-            .action-right {
-                flex-direction: column;
-                align-items: flex-end;
-                gap: 4px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .action-right {
-                gap: 15px;
-                flex-wrap: nowrap;
-                flex-direction: row;
-            }
-        }
-
-        /* Container for timer and limit stacked */
-        .timer-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 2px;
-        }
-
-        @media (min-width: 768px) {
-            .timer-info {
-                flex-direction: row;
-                align-items: center;
-                gap: 8px;
-            }
-        }
-
-        /* Container for buttons */
+        /* Buttons container */
         .action-buttons {
             display: flex;
             align-items: center;
             gap: 4px;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .action-buttons {
+                gap: 6px;
+            }
         }
 
         .time-limit {
-            font-size: 11px;
+            font-size: 10px;
             color: #999;
-            min-width: 45px;
-            text-align: right;
+            text-align: center;
             white-space: nowrap;
         }
 
         @media (min-width: 768px) {
             .time-limit {
                 font-size: 13px;
-                min-width: 60px;
+                text-align: right;
             }
         }
 
         .timer {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: bold;
             color: #fff;
-            min-width: 45px;
-            text-align: right;
+            text-align: center;
             font-variant-numeric: tabular-nums;
         }
 
         @media (min-width: 768px) {
             .timer {
                 font-size: 16px;
-                min-width: 60px;
+                text-align: right;
             }
         }
 
@@ -971,13 +953,13 @@
             background: #333;
             border: none;
             color: #ffa726;
-            padding: 5px 8px;
+            padding: 6px 10px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: bold;
             transition: all 0.2s;
-            min-width: 45px;
+            min-width: 48px;
             touch-action: manipulation;
         }
 
@@ -1003,13 +985,13 @@
             background: #ff9800;
             border: none;
             color: #fff;
-            padding: 5px 8px;
+            padding: 6px 10px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: bold;
             transition: all 0.2s;
-            margin-left: 3px;
+            margin-left: 0;
             touch-action: manipulation;
             white-space: nowrap;
         }
@@ -2530,15 +2512,13 @@ Ej: Buscar B-Roll específico, esperar feedback, problema técnico..."></textare
                                 <div class="checkbox" id="check-${key}" onclick="toggleCheck(${phaseIdx}, ${actionIdx})"></div>
                                 <span class="action-name">${action.name}</span>
                             </div>
-                            <div class="action-right">
-                                <div class="timer-info">
-                                    <span class="timer" id="timer-${key}">00:00</span>
-                                    <span class="time-limit">${limitText}</span>
-                                </div>
-                                <div class="action-buttons">
-                                    <button class="pause-btn" id="pause-${key}" onclick="showPauseNoteModal(${phaseIdx}, ${actionIdx})">⏸️ Pausa</button>
-                                    <button class="timer-btn" id="btn-${key}" onclick="toggleTimer(${phaseIdx}, ${actionIdx})">Start</button>
-                                </div>
+                            <div class="action-center">
+                                <span class="timer" id="timer-${key}">00:00</span>
+                                <span class="time-limit">${limitText}</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="pause-btn" id="pause-${key}" onclick="showPauseNoteModal(${phaseIdx}, ${actionIdx})">⏸️ Pausa</button>
+                                <button class="timer-btn" id="btn-${key}" onclick="toggleTimer(${phaseIdx}, ${actionIdx})">Start</button>
                             </div>
                         </div>
                     `;
