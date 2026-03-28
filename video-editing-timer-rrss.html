@@ -46,6 +46,21 @@
             color: #999;
         }
 
+        /* Landscape mode - make header much smaller */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .header {
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+            }
+            .header h1 {
+                font-size: 14px;
+                margin-bottom: 4px;
+            }
+            .header p {
+                font-size: 10px;
+            }
+        }
+
         @media (min-width: 768px) {
             .header h1 {
                 font-size: 28px;
@@ -86,6 +101,25 @@
             margin-top: 3px;
         }
 
+        /* Landscape mode (horizontal) - make timer much smaller */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .total-timer {
+                padding: 6px 10px;
+                margin-bottom: 10px;
+            }
+            .total-timer h2 {
+                font-size: 11px;
+                margin-bottom: 3px;
+            }
+            .total-time {
+                font-size: 20px;
+            }
+            .total-limit {
+                font-size: 9px;
+                margin-top: 2px;
+            }
+        }
+
         @media (min-width: 768px) {
             .total-timer {
                 padding: 12px 15px;
@@ -112,6 +146,14 @@
             border: 2px solid #333;
         }
 
+        /* Landscape mode - tighter spacing */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .phase {
+                margin-bottom: 8px;
+                border-radius: 8px;
+            }
+        }
+
         @media (min-width: 768px) {
             .phase {
                 margin-bottom: 20px;
@@ -126,6 +168,13 @@
             align-items: center;
             cursor: pointer;
             user-select: none;
+        }
+
+        /* Landscape mode - compact header */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .phase-header {
+                padding: 8px 12px;
+            }
         }
 
         @media (min-width: 768px) {
@@ -180,6 +229,14 @@
             border-radius: 8px;
             margin-bottom: 6px;
             border: 1px solid #333;
+        }
+
+        /* Landscape mode - ultra compact */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .action-item {
+                padding: 6px 8px;
+                margin-bottom: 4px;
+            }
         }
 
         @media (min-width: 768px) {
@@ -268,8 +325,9 @@
             font-size: 13px;
             color: #e0e0e0;
             line-height: 1.2;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            flex: 1;
         }
 
         @media (min-width: 768px) {
